@@ -3,6 +3,8 @@ from django.db import models
 # Create your models here.
 class Event(models.Model):
     eventname = models.CharField(max_length=200)
-    date = models.IntegerField
-    time
-    duration
+    start_date_time = models.DateTimeField(auto_now=False, auto_now_add=False)
+    end_date_time = models.DateTimeField(auto_now=False, auto_now_add=False)
+    
+    def __str__(self):
+        return self.eventname
