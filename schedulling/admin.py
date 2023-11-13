@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+# Register models .
 from .models import Event
 
 admin.site.register(Event)

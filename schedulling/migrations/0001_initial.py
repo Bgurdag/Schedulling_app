@@ -2,7 +2,7 @@
 
 from django.db import migrations, models
 
-
+#Creating models
 class Migration(migrations.Migration):
 
     initial = True
