@@ -9,8 +9,6 @@ def homepage(request):
 
     context = {"events" :events_list}
     return render(request, "Official_calendar/index.html", context)
-    return render(request, "Official_calendar/style.css", context)
-    return render(request, "Official_calendar/launch.json", context)
 
 def submit_event(request):
     # if this is a POST request we need to process the form data

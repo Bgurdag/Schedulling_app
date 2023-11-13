@@ -1,14 +1,32 @@
+.column {
+  float: left;
+  width: max-content;
+  height: 610px;
+  width: max-content;
+  background-color: rgb(254, 254, 254);
+  border-radius: 25px;
+  overflow: hidden;
+  padding: 30px 50px 0px 50px;
+}
+
+/* Clear floats after the columns */
+.row:after {*content: "";
+  display: table;
+  clear: both;
+  
+}
+
 :root {
   --dark-text: #000000;
   --light-body: #f3f8fe;
   --light-main: #fdfdfd;
-  --light-second: #c3c2c8;
+  --light-second: #000000;
   --light-hover: #f0f0f0;
-  --light-text: #151426;
+  --light-text: #ffffff;
   --light-btn: rgba(131, 199, 233, 0.719);
   --blue: #0000ff;
   --white: #fff;
-  --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  --shadow: rgba(255, 255, 255, 0.2) 0px 7px 29px 0px;
   --font-family: consolas;
 }
 * {
@@ -67,7 +85,7 @@ body {
   color:rgb(104, 104, 104);
 }
 .calendar-week-days div:hover {
-color:black;
+color:rgb(255, 255, 255);
 transform: scale(1.2);
 transition: all .2s ease-in-out;
 }
@@ -155,7 +173,7 @@ transition: all .2s ease-in-out;
   position: relative;
   left: 0;
   top: -50px;
-  background-color: rgb(18, 0, 0);
+  background-color: rgb(131, 199, 233, 0.719);
   color: var(--light-text);
   display: grid;
   grid-template-columns: repeat(3, auto);
@@ -175,7 +193,7 @@ transition: all .2s ease-in-out;
 }
 .month-list > div > div:hover {
   background-color:var(--light-btn);
-  color: var(--dark-text);
+  color: var(--light-hover);
   transform: scale(0.9);
   transition: all 0.2s ease-in-out;
 }
