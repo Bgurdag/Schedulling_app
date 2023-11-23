@@ -10,13 +10,38 @@
   </head>
   <body>
     <div class="contianer">
-
+<!--Creating the 2 columns-->
       <div class="row">
         <div class="column">
+<!--Form for column-->
+        <div class="columnForm">
+          <form method="POST"> 
+            {% csrf_token %}
+             <label for="name"> Event Name:</label><br>
+            <input type="text" id="name" name="name"><br>
+            <br>
+            <label for="sdt">Start Date and time:</label><br>
+            <input type="datetime-local" id="sdt" name="sdt"><br>
+            <br>
+          <div class="columnForm2"> 
+             <label for="edt"> End Date and time:</label><br>
+            <input type="datetime-local" id="edt" name="edt"> 
+          </div>
 
+            <br>
+            <input type="submit" value="add event">
+          </form>
+        </div>
+
+        <!--events list-->
+
+      <div class="eventsList">
           {% for event in events %}
+          <br>
             <p>{{event.eventname}}</p>
+            <br>
           {% endfor %}
+      </div>
 
         </div>
         <div class="column">

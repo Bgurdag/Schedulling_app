@@ -7,23 +7,25 @@ from django.http import HttpResponseRedirect
 def homepage(request):
     events_list = Event.objects.all()
 
-    context = {"events" :events_list}
-    return render(request, "Official_calendar/index.html", context)
-
-def submit_event(request):
-    # if this is a POST request we need to process the form data
-    if request.method == "POST":
-        # create a form instance and populate it with data from the request:
+    if request.method=="POST":
         form = ScheduleFrom(request.POST)
+        eventN = request.POST["name"]
+        sdtF= request.POST["sdt"]
+        edtF = request.POST["edt"]
         # check whether it's valid:
-        if form.is_valid():
+        # if form.is_valid():
             # process the data in form.cleaned_data as required
-            # ...
+        obj = Event(
+            eventname = eventN, #form.cleaned_data["name"],
+            start_date_time = sdtF, #form.cleaned_data["sdt"],
+            end_date_time = edtF #form.cleaned_data["edt"]
+        )
+        obj.save()
+        print("printed")
             # redirect to a new URL:
-            return HttpResponseRedirect("/thanks/")
-
-    # if a GET (or any other method) we'll create a blank form
     else:
         form = ScheduleFrom()
 
-    return render(request, "schedulling/event.html", {"form": form})
+    context = {"events" :events_list, "form":form}
+    return render(request, "Official_calendar/index.html", context)
+
